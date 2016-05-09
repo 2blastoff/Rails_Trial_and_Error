@@ -1,0 +1,19 @@
+<%if user_signed_in? %>
+  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<%end%>
+
+<% if @contacts.any? %>
+  <% @contacts.each do |contact| %>
+  <%= link_to image_tag(contact.image.url(:thumb)), contact_path(contact) %>
+  <h3><%= contact.firstname%> <%=contact.surname%></h3>
+  <%=contact.email%><br />
+  <%=contact.phone%>
+  <br />
+  <br />
+  <%end%>
+<%else%>
+  No contacts yet!
+<%end%>
+<br />
+<br />
+<%= link_to 'Add a contact', new_contact_path%>

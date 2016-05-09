@@ -1,0 +1,7 @@
+<p><%= image_tag @contact.image.url(:thumb) %></p>
+<p><%= @contact.firstname %> <%= @contact.surname %></p>
+<p><%= @contact.phone %></p>
+<p><%= @contact.email %></p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> <%= link_to 'Remove', contact_path(@contact), method: :delete %><br /><br />
+<%= link_to 'Contacts', contacts_path %>
